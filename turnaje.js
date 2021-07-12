@@ -2,6 +2,7 @@
 
 let teamsNames = ['Chobotnice', 'Tigre', 'Krokodíly', 'Levy', 'Nosorožce', 'Hady', 'Pirane', 'Žraloky'];
 let stagesNames = ['Hory a údolia', 'Balónový basketbal', 'Futbalo-hádzaná', 'Oddych'];
+let roundTranslations = 'kolo';
 
 function robinRoundAlgorithm(teams = 8, randomize = true) {
     const rounds = [];
@@ -54,7 +55,7 @@ function printRounds(rotatedRobinRoundResults) {
     let result  = '';
 
     rotatedRobinRoundResults.forEach((round, roundIndex) => {
-        result = result + `${(roundIndex + 1)}. kolo\n`;
+        result = result + `${(roundIndex + 1)}. ${roundTranslations}\n`;
 
         round.forEach((stage, stageIndex) => {
             const stageNameSpaces = longestStageName.length - stagesNames[stageIndex].length + spacesAfterStageName;
