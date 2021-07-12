@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Myslienka dna</title>
+  <meta name="description" content="Myslienka dna">
+  <meta name="author" content="OdkoPP">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" media="print" href="print-styles.css">
+</head>
+
+<body>
+  <div class="input-data">
+    Pouzivajte Chrome
+    <br>
+    <br>
+    Sem vlozte myslienky dni
+    <br>
+    Kazda myslienka na samostatnom riadku
+    <br>
+    Kliknite tlacidlo "Spracovat"
+    <br>
+    <br>
+    Nakoniec len kliknite Ctrl + P (tlacit) a nastavte:
+    <br> &nbsp; &nbsp; &nbsp; Destination - Save as PDF
+    <br> &nbsp; &nbsp; &nbsp; Layout - Landscape
+    <br> &nbsp; &nbsp; &nbsp; Paper size - A4
+    <br> &nbsp; &nbsp; &nbsp; Margins - Custom (priamo v nahlade dajte horny a lavy okraj na 0.1")
+    <br> &nbsp; &nbsp; &nbsp; Scale - Default
+    <br> &nbsp; &nbsp; &nbsp; Headers and footers - Nie
+    <br>
+    <hr>
+    <textarea>Buďte dobrí, ak môžete.
+Idem ja.
+Spoločne sme silnejší.
+Nikdy sa nevzdávaj.
+Vedie nás nádej.</textarea>
+    <br>
+    <button onclick="createCards();">Spracovat</button>
+    <hr>
+  </div>
+
+  <div class="container"></div>
+
+  <script src="../lib/jquery-3.5.1.min.js"></script>
+  <script>
+    function createCards() {
+      const thoughts = $('.input-data textarea').val().split('\n');
+
+      $('.container').empty();
+
+      thoughts.forEach( thought => {
+        [...Array(9)].map( e => {
+          $('.container').append(
+            `<div class="card-container" style="text-align: center; float: left !important">
+              <div>
+                <div class="thought">${thought}</div>
+              </div>
+            </div>`);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

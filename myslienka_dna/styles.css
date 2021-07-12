@@ -1,0 +1,33 @@
+/* Nastavenie okrajov strany pri tlaceni */
+@page {margin: 10mm}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+/* Zakladny rozmer a zobrazenie */
+.card-container {
+    width: 97mm;
+    height: 68mm;
+    border: 1px solid rgb(212, 212, 212);
+    position: relative;
+    float: left;
+    /* Aby sa menovka pri tlaceni neodsekla na konci strany */
+    page-break-inside: avoid;
+    /* font-family: "Courier New", Courier, monospace; */
+}
+
+.card-container .thought {
+    font-size: 30px;
+}
+
+/* Okraj */
+.card-container > div {
+    padding: 5mm;
+}

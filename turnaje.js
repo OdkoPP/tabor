@@ -1,3 +1,5 @@
+// Vlozit do "Chrome console" a spustit (Enter). Kazdy krat sa to generuje nanovo a randomizuje, takze rovnaky vysledok nenastane len tak. Preto to pustite raz a ulozte si vysledok niekam inam
+
 let teamsNames = ['Chobotnice', 'Tigre', 'Krokodíly', 'Levy', 'Nosorožce', 'Hady', 'Pirane', 'Žraloky'];
 let stagesNames = ['Hory a údolia', 'Balónový basketbal', 'Futbalo-hádzaná', 'Oddych'];
 

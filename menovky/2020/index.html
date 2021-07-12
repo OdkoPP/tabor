@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Menovky na tabor</title>
+    <meta name="description" content="Menovky na tabor">
+    <meta name="author" content="OdkoPP">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" media="print" href="print-styles.css">
+</head>
+
+<body>
+<div class="input-data">
+    Pouzivajte Chrome
+    <br>
+    <br>
+    Sem vlozte zoznam dvojic - meno a skupina
+    <br>
+    Kazda dvojica je na jendom riadku
+    <br>
+    Meno a skupina su oddelene ciarkou
+    <br>
+    Kliknite tlacidlo "Spracovat"
+    <br>
+    <br>
+    Mena a modlitby by sa mali prekryvat, ak ich date tlacit z druhej strany (overte si to na jednej strane napriklad, ci to sedi a potom to tlacte cele a strihajte)
+    <br>
+    Tlac by mala sediet na sirku, no malo by to rovnako no s vacsimi stratami na papieri fungovat aj na vysku
+    <br>
+    <br>
+    Nakoniec len kliknite Ctrl + P (tlacit) a nastavte:
+    <br> &nbsp; &nbsp; &nbsp; Destination - Save as PDF
+    <br> &nbsp; &nbsp; &nbsp; Layout - Landscape
+    <br> &nbsp; &nbsp; &nbsp; Paper size - A4
+    <br> &nbsp; &nbsp; &nbsp; Margins - Default
+    <br> &nbsp; &nbsp; &nbsp; Scale - Default
+    <br> &nbsp; &nbsp; &nbsp; Headers and footers - Nie
+    <br>
+    <hr>
+    <textarea>Denis,Santarém
+Alex,Santarém
+Bruno,Santarém
+Martin,Santarém
+Peter,Santarém
+Patrik,Santarém
+Peťka,Santarém
+Simonka,Santarém
+Emka,Santarém
+Vaneska,Santarém
+Julka,Santarém
+Karolínka,Santarém
+Rišo,Porto
+Marko,Porto
+Patrik,Porto
+Alex,Porto
+Paľo,Porto
+Miška,Porto
+Miriam,Porto
+Laura,Porto
+Adelka,Porto
+Peťka,Porto
+Adelka,Porto
+Zuzka,Porto
+Timur,Porto
+Milan,Aveiro
+Samko,Aveiro
+Dávid,Aveiro
+Maxim,Aveiro
+Juraj,Aveiro
+Samko,Aveiro
+Alex,Aveiro
+Sonka,Aveiro
+Agátka,Aveiro
+Bianka,Aveiro
+Zinka,Aveiro
+Sofia,Aveiro
+Rebeka,Aveiro
+Patrik,Guarda
+Dominik,Guarda
+Matej,Guarda
+Tomáš,Guarda
+Jakub,Guarda
+Adelka,Guarda
+Julka,Guarda
+Ester,Guarda
+Janka,Guarda
+Katka,Guarda
+Veronika,Guarda
+11 ročné dievča,Guarda
+Rišo,Faro
+Tomáš,Faro
+Ferko,Faro
+Jánko,Faro
+Kristián,Faro
+Liliana,Faro
+Sofia,Faro
+Tamarka,Faro
+Karin,Faro
+Kristínka,Faro
+Viky,Faro
+Majka,Faro
+Šimon,Evora
+Nikolas,Evora
+Peťo,Evora
+Teodor,Evora
+Oliver,Evora
+Viky,Evora
+Emaka,Evora
+Ivka,Evora
+Klaudia,Evora
+Klárka,Evora
+Dorotka,Evora
+Sárka,Evora
+Maťo,Braga
+Juraj,Braga
+Adam,Braga
+Martin,Braga
+Oliver,Braga
+Sofia,Braga
+Zuzka,Braga
+Ella,Braga
+Petronelka,Braga
+Magdalénka,Braga
+Danielka,Braga
+Sárka,Braga
+Oliver,Beja
+Tobiáš,Beja
+Adrián,Beja
+Samko,Beja
+Jakub,Beja
+Petranka,Beja
+Karin,Beja
+Nelka,Beja
+Sárka,Beja
+Vivien,Beja
+Anka,Beja
+Žofka,Beja
+Lucka,Animátor
+Danko,Animátor
+Natálka,Animátor
+Matúš,Animátor
+Peťka,Animátor
+Dávid,Animátor
+Rút,Animátor
+Tobi,Animátor
+Adam,Animátor
+Natal,Animátor
+Lukáš,Animátor
+Matúš,Animátor
+Sima,Animátor
+Kamil,Animátor
+Eliška,Animátor
+Daniel,Animátor
+Tadeáš,Animátor
+Anna,Animátor
+Biba,Animátor
+Dávid,Animátor
+Majka,Animátor
+Miška,Animátor
+Adam,Animátor
+Monika,Animátor
+Paťo,Animátor
+Mišo,Animátor
+Rolo,Animátor
+Norika,Animátor
+Ďuri,Animátor
+Saška,Animátor
+Ondro,DJ
+Aďo,Moderátor
+Dano,Moderátor
+Rišo,Fotograf
+Ľubo,Vedúci tábora
+Dominik,Salezián</textarea>
+    <br>
+    <input type="checkbox" class="is-prayer" >Generovanie modlitieb
+    <br>
+    <button onclick="createCards();">Spracovat</button>
+    <hr>
+</div>
+
+<div class="container"></div>
+
+<script src="../../lib/jquery-3.5.1.min.js"></script>
+<script>
+    function createCards() {
+        const peopleData = $('.input-data textarea').val();
+        const processedPeopleData = peopleData.split('\n').map(e => e.split(','));
+        const isPrayer = $('.is-prayer').prop('checked');
+        const prayer = `Klaniam sa ti, môj Bože a milujem ťa celým srdcom. Ďakujem Ti, že si ma stvoril a urobil kresťanom a že si ma túto noc zachoval v zdraví a v milosti. Obetujem Ti všetky svoje myšlienky, slová a skutky v tomto novom dni. Daj, nech sú na Tvoju česť a slávu a mne na spásu. Chráň ma od hriechu a od všetkého zla. Tvoja milosť nech je vždy so mnou i s mojimi drahými. Amen.`
+        const prayerHeader = 'Ranná modlitba';
+
+        $('.container').empty();
+
+        processedPeopleData.forEach(person => {
+            if (isPrayer) {
+                $('.container')
+                  .append(
+                    `<div class="card-container" style="text-align: center; float: right !important; border">
+              <div class="prayer-container">
+                <div class="prayer-header">${prayerHeader}</div>
+                <div class="prayer-body">${prayer}</div>
+              </div>
+            </div>`
+                  );
+            } else {
+                $('.container')
+                  .append(
+                    `<div class="card-container" style="border-color: black">
+                <img class="card-main-image" src="main_img.jpg">
+                <div class="card-group-name">
+                  ${person[1]}
+                </div>
+                <div class="card-person-name">
+                  ${person[0]}
+                </div>
+            </div>`
+                  );
+            }
+        });
+    }
+</script>
+</body>
+</html>

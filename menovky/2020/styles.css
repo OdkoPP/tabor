@@ -1,0 +1,66 @@
+/* Nastavenie okrajov strany pri tlaceni */
+@page {margin: 10mm}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Menovka - zakladny rozmer a zobrazenie */
+.card-container {
+  width: 90mm;
+  height: 60mm;
+  position: relative;
+  float: left;
+  border: 1px solid whitesmoke;
+  /* Aby sa menovka pri tlaceni neodsekla na konci strany */
+  page-break-inside: avoid;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+/* Obrazok na menovke */
+.card-container > .card-main-image {
+  width: 70%;
+  padding-top: 2mm;
+  padding-left: 1cm;
+}
+
+/* Nazov skupinky */
+.card-container > .card-group-name {
+  position: absolute;
+  top: 35mm;
+  left: 45mm;
+  padding-top: 2mm;
+  font-size: 24px;
+}
+
+/* Meno osoby */
+.card-container > .card-person-name {
+  position: absolute;
+  top: 45mm;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding-top: 2mm;
+  font-size: 30px;
+}
+
+.card-container > .prayer-container {
+  height: 100%;
+  padding: 3mm;
+}
+
+.card-container .prayer-header {
+  margin-bottom: 2mm;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-container .prayer-body {
+  font-size: 14px;
+}

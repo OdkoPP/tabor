@@ -1,0 +1,93 @@
+/* Nastavenie okrajov strany pri tlaceni */
+@page {margin: 10mm}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+/* Menovka - zakladny rozmer a zobrazenie */
+.card-container {
+    width: 90mm;
+    height: 60mm;
+    position: relative;
+    float: left;
+    border: 1px solid whitesmoke;
+    /* Aby sa menovka pri tlaceni neodsekla na konci strany */
+    page-break-inside: avoid;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+/* Obrazok na menovke */
+.card-container > .card-main-image {
+    padding-top: 17%;
+    padding-left: 0;
+    height: 70%;
+}
+
+/* Nazov tabora */
+.card-container > .card-event {
+    font-family: Verdana, sans-serif;
+    position: absolute;
+    top: 12mm;
+    right: 5mm;
+    padding-top: 1mm;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Tema tabora */
+.card-container > .card-theme {
+    font-family: Verdana, sans-serif;
+    position: absolute;
+    top: 22mm;
+    right: 5mm;
+    padding-top: 1mm;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Nazov skupinky */
+.card-container > .card-group-name {
+    font-family: Verdana, sans-serif;
+    position: absolute;
+    bottom: 5mm;
+    right: 5mm;
+    padding-top: 1mm;
+    font-size: 27px;
+    text-align: center;
+    /*font-weight: bold;*/
+}
+
+/* Meno osoby */
+.card-container > .card-person-name {
+    font-family: Verdana, sans-serif;
+    position: absolute;
+    top: 33mm;
+    right: 5mm;
+    text-align: center;
+    font-size: 33px;
+    font-weight: bold;
+}
+
+.card-container > .prayer-container {
+    height: 100%;
+    padding: 3mm;
+}
+
+.card-container .prayer-header {
+    margin-bottom: 2mm;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-container .prayer-body {
+    font-size: 14px;
+}
