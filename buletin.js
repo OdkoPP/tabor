@@ -1,3 +1,5 @@
+// Inspirovane z http://tlac.cekuj.net/tlacenie.php
+
 let format = 'a5';      // Can be 'a5', 'a6', 'A5' or 'A6'
 let pages = 20;         // Must be multiple of four like 4,8,12,16,20,24,....
 
