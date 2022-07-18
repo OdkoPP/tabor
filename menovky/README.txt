@@ -1,1 +1,1 @@
-Menovky nerobit uplne od okraja po kraj a hlavne na hornej strane, aby sa to dalo prederavit a navliect tam snurka. Dobry priklad je rok 2021
+Menovky nerobit uplne od okraja po kraj a hlavne na hornej strane, aby sa to dalo prederavit a navliect tam snurka. Dobry priklad je rok 2022

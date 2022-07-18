@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Menovky na tabor</title>
+  <meta name="description" content="Menovky na tabor">
+  <meta name="author" content="OdkoPP">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" media="print" href="print-styles.css">
+</head>
+
+<body>
+  <div class="input-data">
+    Pouzivajte Chrome
+    <br>
+    <br>
+    Sem vlozte zoznam dvojic - meno a skupina
+    <br>
+    Kazda dvojica je na jendom riadku
+    <br>
+    Meno a skupina su oddelene ciarkou
+    <br>
+    Kliknite tlacidlo "Spracovat"
+    <br>
+    <br>
+    Mena a modlitby by sa mali prekryvat, ak ich date tlacit z druhej strany (overte si to na jednej strane napriklad, ci to sedi a potom to tlacte cele a strihajte)
+    <br>
+    Tlac by mala sediet na sirku, no malo by to rovnako no s vacsimi stratami na papieri fungovat aj na vysku
+    <br>
+    <br>
+    Nakoniec len kliknite Ctrl + P (tlacit) a nastavte:
+    <br> &nbsp; &nbsp; &nbsp; Destination - Save as PDF
+    <br> &nbsp; &nbsp; &nbsp; Layout - Landscape
+    <br> &nbsp; &nbsp; &nbsp; Paper size - A4
+    <br> &nbsp; &nbsp; &nbsp; Margins - Default
+    <br> &nbsp; &nbsp; &nbsp; Scale - Default
+    <br> &nbsp; &nbsp; &nbsp; Headers and footers - Nie
+    <br>
+    <hr>
+    <textarea>Hanka,Chobotnice
+Ester,Chobotnice
+Miška,Chobotnice
+Julka,Chobotnice
+Adelka,Chobotnice
+Viky,Chobotnice
+Julka,Chobotnice
+Milan,Chobotnice
+Matej,Chobotnice
+Tobias,Chobotnice
+Janko,Chobotnice
+Adrián,Chobotnice
+Miška,Tigre
+Sofia,Tigre
+Nelka,Tigre
+Bianka,Tigre
+Klaudia,Tigre
+Vaneska,Tigre
+Vivien,Tigre
+Martin,Tigre
+Martin,Tigre
+Oliver,Tigre
+Juraj,Tigre
+Laura,Krokodíly
+Liliana,Krokodíly
+Miriam,Krokodíly
+Majka,Krokodíly
+Janka,Krokodíly
+Peťka,Krokodíly
+Sofia,Krokodíly
+Maxo,Krokodíly
+Ľubo,Krokodíly
+Teodor,Krokodíly
+Samuel,Krokodíly
+Patrik,Krokodíly
+Katka,Levy
+Petranka,Levy
+Simonka,Levy
+Karin,Levy
+Natálka,Levy
+Katka,Levy
+Klárka,Levy
+Lukáš,Levy
+Patrik,Levy
+Samuel,Levy
+Peťo,Levy
+Alex,Levy
+Zuzka,Nosorožce
+Adelka,Nosorožce
+Peťka,Nosorožce
+Zuzka,Nosorožce
+Klaudia,Nosorožce
+Radka,Nosorožce
+Adelka,Nosorožce
+Peťo,Nosorožce
+Tobiáš,Nosorožce
+Peťo,Nosorožce
+Matej,Nosorožce
+Oliver,Nosorožce
+Dominika,Hady
+Sonka,Hady
+Ivka,Hady
+Agátka,Hady
+Chiara,Hady
+Kristínka,Hady
+Sofia,Hady
+Denis,Hady
+Riško,Hady
+Ferko,Hady
+Adam,Hady
+Bruno,Hady
+Anka,Pirane
+Emka,Pirane
+Nela,Pirane
+Tamarka,Pirane
+Petronelka,Pirane
+Julka,Pirane
+Tatianka,Pirane
+Matúš,Pirane
+Dominik,Pirane
+Tomáš,Pirane
+Martin,Pirane
+Oliver,Pirane
+Viky,Žraloky
+Miška,Žraloky
+Karin,Žraloky
+Petronelka,Žraloky
+Lea,Žraloky
+Alex,Žraloky
+Sárka,Žraloky
+Rišo,Žraloky
+Nikolas,Žraloky
+Martin,Žraloky
+Juraj,Žraloky
+Danko,Animátor
+Peťka,Animátor
+Dávid,Animátor
+Ruty,Animátor
+Tobi,Animátor
+Kamil,Animátor
+Eliška,Animátor
+Anička,Animátor
+Bibka,Animátor
+Dávid,Moderátor
+Sima,Animátor
+Daniel,Moderátor
+Daniel,DJ
+Dávid,DJ
+Daniel,Fotograf
+Adam,Animátor
+Paťo,Animátor
+Saška,Animátor
+Mišo,Animátor
+Lucka,Animátor
+Andrej,Animátor
+Naty,Animátor
+Tamarka,Animátor
+Norika,Animátor
+Monika,Animátor
+Danielka,Animátor
+Jakub,Animátor
+Lenka,Animátor
+Sonka,Animátor
+Veronika,Animátor
+Žofka,Animátor
+Ondrej,Animátor
+Emka,Animátor
+Lenka,Animátor
+Nelka,Animátor
+Paťo,Animátor
+Kiko,Animátor
+Jakub,Zdravotník
+Dominik,Salezián
+Paľo,Salezián
+Ľubo,Vedúci tábora</textarea>
+    <br>
+    <input type="checkbox" class="is-prayer" >Generovanie modlitieb
+    <br>
+    <button onclick="createCards();">Spracovat</button>
+    <hr>
+  </div>
+
+  <div class="container"></div>
+
+  <script src="../../lib/jquery-3.5.1.min.js"></script>
+  <script>
+    function createCards() {
+      const peopleData = $('.input-data textarea').val();
+      const processedPeopleData = peopleData.split('\n').map(e => e.split(','));
+      const isPrayer = $('.is-prayer').prop('checked');
+      const prayer = `Klaniam sa ti, môj Bože a milujem ťa celým srdcom. Ďakujem Ti, že si ma stvoril a urobil kresťanom a že si ma túto noc zachoval v zdraví a v milosti. Obetujem Ti všetky svoje myšlienky, slová a skutky v tomto novom dni. Daj, nech sú na Tvoju česť a slávu a mne na spásu. Chráň ma od hriechu a od všetkého zla. Tvoja milosť nech je vždy so mnou i s mojimi drahými. Amen.`
+      const prayerHeader = 'Ranná modlitba';
+
+      $('.container').empty();
+
+      processedPeopleData.forEach(person => {
+        if (isPrayer) {
+          $('.container')
+          .append(
+            `<div class="card-container" style="text-align: center; float: right !important; border">
+              <div class="prayer-container">
+                <div class="prayer-header">${prayerHeader}</div>
+                <div class="prayer-body">${prayer}</div>
+              </div>
+            </div>`
+          );
+        } else {
+          $('.container')
+          .append(
+            `<div class="card-container" style="border-color: black">
+                <img class="card-main-image" src="main_img.png">
+                <div class="card-event">Prímestský tábor 2022</div>
+                <div class="card-theme">Matka Tereza</div>
+                <div class="card-group-name">
+                  ${person[1]}
+                </div>
+                <div class="card-person-name">
+                  ${person[0]}
+                </div>
+            </div>`
+          );
+        }
+      });
+    }
+  </script>
+</body>
+</html>
