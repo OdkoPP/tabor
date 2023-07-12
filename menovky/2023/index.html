@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Menovky na tabor</title>
+  <meta name="description" content="Menovky na tabor">
+  <meta name="author" content="OdkoPP">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" media="print" href="print-styles.css">
+</head>
+
+<body>
+  <div class="input-data">
+    Pouzivajte Chrome
+    <br>
+    <br>
+    Sem vlozte zoznam dvojic - meno a skupina
+    <br>
+    Kazda dvojica je na jendom riadku
+    <br>
+    Meno a skupina su oddelene ciarkou
+    <br>
+    Kliknite tlacidlo "Spracovat"
+    <br>
+    <br>
+    Mena a modlitby by sa mali prekryvat, ak ich date tlacit z druhej strany (overte si to na jednej strane napriklad, ci to sedi a potom to tlacte cele a strihajte)
+    <br>
+    Tlac by mala sediet na sirku, no malo by to rovnako no s vacsimi stratami na papieri fungovat aj na vysku
+    <br>
+    <br>
+    Nakoniec len kliknite Ctrl + P (tlacit) a nastavte:
+    <br> &nbsp; &nbsp; &nbsp; Destination - Save as PDF
+    <br> &nbsp; &nbsp; &nbsp; Layout - Landscape
+    <br> &nbsp; &nbsp; &nbsp; Paper size - A4
+    <br> &nbsp; &nbsp; &nbsp; Margins - Default
+    <br> &nbsp; &nbsp; &nbsp; Scale - Default
+    <br> &nbsp; &nbsp; &nbsp; Headers and footers - Nie
+    <br>
+    <hr>
+    <textarea>Janka,Selicha
+Katka,Selicha
+Ester,Selicha
+Laura,Selicha
+Ema,Selicha
+Saška,Selicha
+Anna,Selicha
+Nela,Selicha
+Adam,Selicha
+Dominik,Selicha
+Timotej,Selicha
+Tobias,Selicha
+
+Natália,Lichrat
+Petra,Lichrat
+Lilian,Lichrat
+Zuzka,Lichrat
+Soňa,Lichrat
+Miška,Lichrat
+Hanka,Lichrat
+Sarah,Lichrat
+Patrik,Lichrat
+Tobias,Lichrat
+Matej,Lichrat
+Andreas,Lichrat
+
+Klaudia,Gebora
+Bianka,Gebora
+Zuzka,Gebora
+Janka,Gebora
+Nela,Gebora
+Veronika,Gebora
+Miška,Gebora
+Mária,Gebora
+Adrián,Gebora
+Nikolas,Gebora
+Martin,Gebora
+Martin,Gebora
+
+Karolína,Annum
+Julka,Annum
+Adela,Annum
+Nina,Annum
+Nela,Annum
+Bianka,Annum
+Dominika,Annum
+Ema,Annum
+Tomáš,Annum
+Matúš,Annum
+Max,Annum
+Matej,Annum
+
+Karin,Rachamim
+Saška,Rachamim
+Agátka,Rachamim
+Lili,Rachamim
+Stela,Rachamim
+Miška,Rachamim
+Megi,Rachamim
+Zuzka,Rachamim
+Peter,Rachamim
+Richard,Rachamim
+Lukas,Rachamim
+Kristián,Rachamim
+
+Chiara,Seniot
+Kristínka,Seniot
+Tamara,Seniot
+Sofia,Seniot
+Petra,Seniot
+Laura,Seniot
+Lianka,Seniot
+Kiara,Seniot
+Ferko,Seniot
+Matej,Seniot
+Peter,Seniot
+Félix,Seniot
+
+Petronela,Odot
+Julka,Odot
+Ella,Odot
+Petrana,Odot
+Julka,Odot
+Sára,Odot
+Kristínka,Odot
+Martin,Odot
+Tobiáš,Odot
+Damián,Odot
+Jurko,Odot
+Damián,Odot
+
+Sára,Halom
+Mária,Halom
+Nela,Halom
+Adela,Halom
+Viki,Halom
+Katka,Halom
+Hanka,Halom
+Martin,Halom
+Richard,Halom
+Patrik,Halom
+Tomáš,Halom
+Jakub,Halom
+
+Teo,Animátor
+Ďuro,Animátor
+Paťo,Animátor
+Kamil,Animátor
+Daniel,Animátor
+Jakub,Animátor
+Kiko,Animátor
+Monika,Animátor
+Mišo,Animátor
+Sofia,Animátor
+Danielka,Animátor
+Peťka,Animátor
+Jakub,Animátor
+Michal,Animátor
+Klára,Animátor
+Lucka,Animátor
+Lenka,Animátor
+Oliver,Animátor
+Lili,Animátor
+Edit,Animátor
+Evička,Animátor
+Rút,Animátor
+Eliška,Animátor
+Sofi,Animátor
+Žofka,Animátor
+Dorotka,Animátor
+Danko,Animátor
+Dávid,Animátor
+Nela,Animátor
+Oliver,Animátor
+
+Viki,Animátor
+Sonka,Animátor
+Tanička,Animátor
+Vaneska,Animátor
+Vivi,Animátor
+Peťo,Animátor
+Samitko,Animátor
+
+Jakub,Zdravotník
+Dominik,Salezián
+Paľo,Salezián
+Ľubo,Vedúci tábora
+</textarea>
+    <br>
+    <input type="checkbox" class="is-prayer" >Generovanie modlitieb
+    <br>
+    <button onclick="createCards();">Spracovat</button>
+    <hr>
+  </div>
+
+  <div class="container"></div>
+
+  <script src="../../lib/jquery-3.5.1.min.js"></script>
+  <script>
+    function createCards() {
+      const peopleData = $('.input-data textarea').val();
+      const processedPeopleData = peopleData.split('\n').filter(e => e).map(e => e.split(','));
+      const isPrayer = $('.is-prayer').prop('checked');
+      const prayer = `Klaniam sa ti, môj Bože a milujem ťa celým srdcom. Ďakujem Ti, že si ma stvoril a urobil kresťanom a že si ma túto noc zachoval v zdraví a v milosti. Obetujem Ti všetky svoje myšlienky, slová a skutky v tomto novom dni. Daj, nech sú na Tvoju česť a slávu a mne na spásu. Chráň ma od hriechu a od všetkého zla. Tvoja milosť nech je vždy so mnou i s mojimi drahými. Amen.`
+      const prayerHeader = 'Ranná modlitba';
+
+      $('.container').empty();
+
+      processedPeopleData.forEach(person => {
+        if (isPrayer) {
+          $('.container')
+          .append(
+            `<div class="card-container" style="text-align: center; float: right !important;">
+              <div class="prayer-container">
+                <div class="prayer-header">${prayerHeader}</div>
+                <div class="prayer-body">${prayer}</div>
+              </div>
+            </div>`
+          );
+        } else {
+          $('.container')
+          .append(
+            `<div class="card-container" style="border-color: black">
+                <img class="card-main-image" src="main_img.png">
+                <div class="card-event">Prímestský tábor 2023</div>
+                <div class="card-theme">Jozef Egyptský</div>
+                <div class="card-group-name">
+                  ${person[1]}
+                </div>
+                <div class="card-person-name">
+                  ${person[0]}
+                </div>
+            </div>`
+          );
+        }
+      });
+    }
+  </script>
+</body>
+</html>
